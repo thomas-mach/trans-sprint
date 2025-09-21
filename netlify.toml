@@ -1,0 +1,21 @@
+# netlify.toml
+
+[build]
+  command = "npm run build"
+  functions = ".netlify/functions"
+
+# Redirect da HTTP a HTTPS
+[[redirects]]
+  from = "http://*"
+  to = "https://:host/:splat"
+  status = 301
+  force = true
+
+# SPA fallback (solo per le route client-side, esclude /api)
+[[redirects]]
+  from = "/app/*"
+  to = "/index.html"
+  status = 200
+  force = true
+
+# Non toccare le API: tutte le richieste /api/* vanno direttamente alle Functions
