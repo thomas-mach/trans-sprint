@@ -41,5 +41,6 @@ export default defineNuxtConfig({
     "@nuxt/test-utils",
     // "@nuxtjs/robots",
     // "@nuxtjs/sitemap",
+    "@pinia/nuxt",
   ],
 });

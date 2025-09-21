@@ -24,10 +24,12 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { useUIStore } from "../stores/ui";
 
+const ui = useUIStore();
 const hasScrolled = ref(false);
-let lastScroll = ref(0);
 const isVisible = ref(true);
+let lastScroll = ref(0);
 
 const handleScroll = () => {
   const current = window.scrollY;
@@ -50,6 +52,23 @@ onMounted(() => {
 
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
+});
+
+onMounted(() => {
+  watch(
+    () => ui.showNav,
+    (newVal) => {
+      if (process.client) {
+        // <-- controlla che siamo sul client
+        if (newVal) {
+          document.body.style.overflow = "hidden";
+        } else {
+          document.body.style.overflow = "";
+        }
+      }
+    },
+    { immediate: true }
+  );
 });
 </script>
 
