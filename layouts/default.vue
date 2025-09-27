@@ -108,11 +108,13 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   width: 100%;
+  background-color: white;
   background: linear-gradient(
     to bottom,
-    var(--clr-white) 20%,
+    var(--clr-white) 10%,
     var(--clr-primary)
   );
+
   font-family: "Montserrat";
   color: var(--clr-black);
   overflow-x: hidden;

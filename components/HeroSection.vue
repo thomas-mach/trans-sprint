@@ -1,27 +1,90 @@
 <template>
   <div class="wrapper">
+    <ClientOnly>
+      <Swiper
+        class="cards-wrapper"
+        :slides-per-view="1.4"
+        :space-between="15"
+        :centered-slides="true"
+        :initial-slide="1"
+        :loop="true"
+        :autoplay="{ delay: 1800, disableOnInteraction: false }"
+        :modules="[Autoplay, EffectCoverflow]"
+        :effect="'coverflow'"
+        :coverflow-effect="{
+          rotate: 30,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        }"
+        :breakpoints="{
+          992: {
+            enabled: false, // 👈 così diventa un normale <div>
+          },
+        }"
+      >
+        <SwiperSlide class="card-slide">
+          <ServiceCard>
+            <template #image>
+              <NuxtImg class="image" src="/images/bus1.jpeg" alt="" />
+            </template>
+          </ServiceCard>
+        </SwiperSlide>
+
+        <SwiperSlide class="card-slide">
+          <ServiceCard>
+            <template #image>
+              <NuxtImg class="image" src="/images/bus2.jpeg" alt="" />
+            </template>
+          </ServiceCard>
+        </SwiperSlide>
+
+        <SwiperSlide class="card-slide">
+          <ServiceCard>
+            <template #image>
+              <NuxtImg class="image" src="/images/bus3.jpeg" alt="" />
+            </template>
+          </ServiceCard>
+        </SwiperSlide>
+
+        <SwiperSlide class="card-slide">
+          <ServiceCard>
+            <template #image>
+              <NuxtImg class="image" src="/images/bus4.jpeg" alt="" />
+            </template>
+          </ServiceCard>
+        </SwiperSlide>
+      </Swiper>
+    </ClientOnly>
+
     <div class="description-wrapper">
       <h1 class="title">
-        Imbianchino professionista <br /><span>a Padova</span><span>.</span>
+        <span>Z nami jedziesz bezpiecznie</span><span>.</span>
       </h1>
 
       <p class="hero-text">
-        Mi chiamo Thomas. Con quasi 20 anni di esperienza, metto passione e
-        impegno in ogni lavoro. Mi piace offrire imbiancature precise, pulite e
-        curate nei dettagli, perché la tua casa merita sempre il meglio.
+        Od ponad 20 lat świadczymy profesjonalne usługi przewozu osób, łącząc
+        tradycję, nowoczesność i troskę o pasażera.
       </p>
-      <a class="cta" href="tel:+393297811979"> CHIAMA ORA </a>
-    </div>
-    <div class="foto-wrapper">
-      <div class="image-person"></div>
-      <div class="dark-circle"></div>
-      <div class="light-circle-big"></div>
-      <div class="light-circle-small"></div>
-      <div class="light-circle-extra-small"></div>
+
+      <div class="cta-wrapper">
+        <a class="cta" href="tel:+393297811979"> SPRAWDZ NASZA OFERTE </a>
+        <a class="cta cta-background" href="tel:+393297811979">
+          SPRAWDZ NASZE LINIE
+        </a>
+      </div>
     </div>
   </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-coverflow";
+</script>
 
 <style scoped>
 /* Containers */
@@ -32,6 +95,12 @@
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  padding-top: 4rem;
+}
+
+.description-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .foto-wrapper {
@@ -41,20 +110,35 @@
   overflow: hidden;
 }
 
+.cards-wrapper {
+  margin: 0;
+  padding: 0;
+}
+
+.cta-wrapper {
+  margin-top: 3rem;
+}
+
+.card-slide {
+  width: 100px; /* larghezza della card */
+  margin: 0; /* niente margin */
+  /* border: 1px solid red; */
+}
+
 .image-person {
   flex-grow: 1;
   margin-top: auto;
-  background-image: url("/images/foto-me.webp");
+  background-image: url("/images/flotabg.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center bottom;
-  position: relative;
+  background-position: bottom;
   z-index: 999;
+  /* transform: translate(20%, -10%); */
 }
 
 /* Typografy */
 .title {
-  margin: 4rem auto 0;
+  margin: 2rem auto 0;
   text-align: center;
   font-size: 5svh;
   line-height: 0.9;
@@ -81,19 +165,30 @@
   margin: 1.5rem auto 0;
 }
 
+.image {
+  border-radius: 24px;
+  width: 100%;
+  display: block;
+}
+
 /* buttons */
 .cta {
   display: block;
   font-size: 2svh;
   font-weight: 800;
   letter-spacing: 2px;
-  background-color: var(--clr-accent);
+  background-color: var(--clr-secondary);
+  color: white;
   width: 90%;
-  margin: 2rem auto 1rem;
+  margin: 1rem auto 1rem;
   padding: 1.7svh;
   text-align: center;
   border-radius: 999px;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cta-background {
+  background-color: var(--clr-accent);
 }
 
 /* circles */

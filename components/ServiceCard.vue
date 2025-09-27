@@ -3,17 +3,6 @@
     <div class="wrapper-image">
       <slot name="image" />
     </div>
-    <!-- <div class="divider"></div> -->
-    <div class="wrapper-title">
-      <slot name="title" />
-    </div>
-    <div class="wrapper-text">
-      <slot name="text" />
-    </div>
-    <!-- <div class="divider"></div> -->
-    <div class="wrapper-cta">
-      <slot name="cta" />
-    </div>
   </div>
 </template>
 
@@ -21,26 +10,34 @@
 
 <style scoped>
 .wrapper-card {
-  min-width: 100%;
-  max-width: 100%;
-  height: 570px;
-  background-color: var(--clr-primary);
-  color: var(--clr-white);
-  display: flex;
-  flex-direction: column;
-  font-family: "Montserrat";
+  height: 100%;
+  width: 100%;
+  /* background-color: var(--clr-primary); */
   border-radius: 24px;
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
+  /* box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3); */
+  /* border: 2px solid green; */
 }
 
 .wrapper-image {
+  overflow: hidden;
   width: 100%;
-  height: 33%;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-  overflow-x: hidden;
-  /* margin-bottom: 1rem; */
+  height: 100%;
+  /* display: flex;
+justify-content: center;
+  align-items: center; */
 }
+
+/* Stile per l'immagine dentro lo slot */
+.wrapper-image ::v-deep(img),
+.wrapper-image ::v-deep(nuxt-img) {
+  /* width: 100%; */
+  /* height: 100%; */
+  /* object-fit: scale-down;
+
+  object-position: bottom; */
+}
+/* cover, contain, fill, scale-down */
+/* top, bottom, left, right, X% Y% */
 
 .wrapper-title {
   font-weight: 600;

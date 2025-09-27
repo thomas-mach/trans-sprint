@@ -100,7 +100,7 @@ const ui = useUIStore();
 
 /* HAMBURGER */
 .hamburger {
-  background: black;
+  background: var(--clr-primary);
   width: 2em;
   height: 3px;
   border-radius: 1em;
@@ -112,7 +112,7 @@ const ui = useUIStore();
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  background: black;
+  background: var(--clr-accent);
   width: 2em;
   height: 3px;
   border-radius: 1em;
@@ -136,7 +136,7 @@ const ui = useUIStore();
 }
 
 .hamburger {
-  background: black;
+  background: var(--clr-accent);
   width: 2em;
   height: 3px;
   border-radius: 1em;
@@ -147,7 +147,7 @@ const ui = useUIStore();
 .hamburger,
 .hamburger::before,
 .hamburger::after {
-  background: black;
+  background: var(--clr-accent);
   width: 2em;
   height: 3px;
   border-radius: 1em;

@@ -1,20 +1,17 @@
 <template>
   <div class="user-menu">
-    <p>home</p>
+    <p>Tutaj beda skroty do roznych sekcji typu rozklad jazdy itp</p>
+    <p>-</p>
     <p>ContactSection</p>
-
-    <p>home</p>
+    <p>-</p>
     <p>ContactSection</p>
-
-    <p>home</p>
+    <p>-</p>
     <p>ContactSection</p>
-
-    <p>home</p>
+    <p>-</p>
     <p>ContactSection</p>
-
-    <p>home</p>
+    <p>-</p>
     <p>ContactSection</p>
-
+    <p>-</p>
     <!-- <router-link class="link" to="/signup" @click="showNav = false">
         Registrati
         <font-awesome-icon class="icon" :icon="['fas', 'user-plus']" />

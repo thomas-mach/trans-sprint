@@ -153,13 +153,11 @@
 }
 
 :root {
-  --clr-white: #f5f5f5;
+  --clr-white: white;
   --clr-black: #212121;
-  --clr-primary: #0976e2;
-  --clr-secondary: #06368f;
-  /* --clr-accent: #ffec7f; */
-  --clr-accent: #fef2ae;
-  --clr-accent-dark: #ffec7f;
+  --clr-primary: #95b8bf;
+  --clr-secondary: #4b6c73;
+  --clr-accent: #2a3a40;
 }
 
 *,
