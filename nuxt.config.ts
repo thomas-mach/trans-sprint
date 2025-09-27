@@ -14,21 +14,7 @@ export default defineNuxtConfig({
 
   // ✅ SEO miglioramenti automatici
   app: {
-    head: {
-      htmlAttrs: { lang: "it" },
-      meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          charset: "utf-8",
-        },
-        {
-          name: "description",
-          content:
-            "Specializzati in verniciature, tinteggiature e finiture di pregio a Padova. Affidati a Revio per lavori di qualità.",
-        },
-        { name: "robots", content: "index, follow" },
-      ],
-    },
+    baseURL: "/trans-sprint/", // 👈 deve essere il nome della repo
   },
 
   // ✅ Moduli
@@ -38,7 +24,7 @@ export default defineNuxtConfig({
     "@nuxt/icon",
     "@nuxt/image",
     "@nuxt/scripts",
-    "@nuxt/test-utils",
+    // "@nuxt/test-utils",
     // "@nuxtjs/robots",
     // "@nuxtjs/sitemap",
     "@pinia/nuxt",
