@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   // ✅ Static Site Generation
   ssr: true, // IMPORTANTE: anche per SSG deve restare true!
   nitro: {
-    preset: "netlify", // Abilita build completamente statica
-    compressPublicAssets: true, // gzip per performance
+    preset: undefined, // usa il default, output in /.output
+    compressPublicAssets: true,
   },
 
   // ✅ Assets CSS

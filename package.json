@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "nuxt build",
+    "deploy": "gh-pages -d .output/public",
     "dev": "nuxt dev",
     "local": "nuxt dev --host",
     "generate": "nuxt generate",
@@ -38,6 +39,7 @@
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.3",
+    "gh-pages": "^6.3.0",
     "prettier": "^3.6.2"
   }
 }
