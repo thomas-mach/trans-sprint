@@ -1,0 +1,7 @@
+{
+  "editor.fontSize": 18,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "prettier.run": "onSave"
+}
