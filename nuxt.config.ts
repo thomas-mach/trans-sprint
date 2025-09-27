@@ -1,3 +1,5 @@
+import { Static } from "vue";
+
 export default defineNuxtConfig({
   compatibilityDate: "2025-05-15",
   devtools: { enabled: false }, // Disabilita devtools in produzione
@@ -5,7 +7,7 @@ export default defineNuxtConfig({
   // ✅ Static Site Generation
   ssr: true, // IMPORTANTE: anche per SSG deve restare true!
   nitro: {
-    preset: undefined, // usa il default, output in /.output
+    preset: "static", // usa il default, output in /.output
     compressPublicAssets: true,
   },
 
