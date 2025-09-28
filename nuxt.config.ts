@@ -7,16 +7,14 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
   css: ["~/assets/main.css"],
+
   fonts: {
-    google: {
-      families: {
-        Montserrat: [100, 200, 300, 400, 500, 600, 700, 800, 900],
-      },
+    defaults: {
+      weights: [100, 200, 400, 600],
+      styles: ["normal", "italic"],
       subsets: ["latin", "latin-ext"],
-      display: "swap",
-      download: true,
-      inject: true,
     },
+    families: [{ name: "Montserrat", provider: "google" }],
   },
   modules: [
     "@nuxt/eslint",
@@ -25,6 +23,5 @@ export default defineNuxtConfig({
     "@nuxt/scripts",
     "@pinia/nuxt",
     "@nuxt/fonts",
-    "@nuxtjs/google-fonts",
   ],
 });

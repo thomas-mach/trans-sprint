@@ -66,9 +66,7 @@
     </ClientOnly>
 
     <div class="description-wrapper">
-      <h1 class="title">
-        <span>Z nami jedziesz bezpiecznie</span><span>.</span>
-      </h1>
+      <h1 class="title">Z nami jedziesz bezpiecznie.</h1>
 
       <p class="hero-text">
         Od ponad 20 lat świadczymy profesjonalne usługi przewozu osób, łącząc
@@ -89,7 +87,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/effect-coverflow";
 </script>
 
@@ -157,20 +154,12 @@ import "swiper/css/effect-coverflow";
   font-size: 5svh;
   line-height: 1;
   letter-spacing: -1px;
-  font-weight: 700;
-}
-
-.title span:first-of-type {
+  font-weight: 600;
   font-style: italic;
-  font-weight: 700;
-}
-
-.title span:last-child {
-  color: var(--clr-accent);
 }
 
 .hero-text {
-  font-weight: 400;
+  font-weight: 200;
   font-size: 1rem;
   line-height: 1.4;
   letter-spacing: 1px;
