@@ -1,7 +1,7 @@
 <template>
   <div>
-    <!-- <ServicesSection />
-    <BenefitsSection />
+    <ServicesSection />
+    <!-- <BenefitsSection />
     <ZoneSection />
     <FAQ />
     <ContactSection />

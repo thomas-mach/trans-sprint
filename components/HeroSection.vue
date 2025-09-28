@@ -55,6 +55,13 @@
             </template>
           </ServiceCard>
         </SwiperSlide>
+        <!-- <SwiperSlide class="card-slide">
+          <ServiceCard>
+            <template #image>
+              <NuxtImg class="image" src="/images/bus5.jpeg" alt="" />
+            </template>
+          </ServiceCard>
+        </SwiperSlide> -->
       </Swiper>
     </ClientOnly>
 
@@ -79,7 +86,7 @@
 </template>
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination, Autoplay, EffectCoverflow } from "swiper/modules";
+import { Autoplay, EffectCoverflow } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -89,18 +96,19 @@ import "swiper/css/effect-coverflow";
 <style scoped>
 /* Containers */
 .wrapper {
-  min-height: 100%;
-  /* flex-grow: 1; */
+  /* min-height: 100%; */
   display: flex;
   flex-direction: column;
-  position: relative;
   overflow: hidden;
   padding-top: 4rem;
+  /* border: 2px solid green; */
+  flex-grow: 10;
 }
 
 .description-wrapper {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .foto-wrapper {
@@ -111,17 +119,23 @@ import "swiper/css/effect-coverflow";
 }
 
 .cards-wrapper {
+  width: 100%;
+  height: 300px;
+  /* border: 3px solid blue; */
   margin: 0;
   padding: 0;
 }
 
 .cta-wrapper {
-  margin-top: 3rem;
+  margin-top: auto;
+  /* border: 1px solid red; */
 }
 
 .card-slide {
-  width: 100px; /* larghezza della card */
-  margin: 0; /* niente margin */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin: 0;
   /* border: 1px solid red; */
 }
 
@@ -141,9 +155,9 @@ import "swiper/css/effect-coverflow";
   margin: 2rem auto 0;
   text-align: center;
   font-size: 5svh;
-  line-height: 0.9;
+  line-height: 1;
   letter-spacing: -1px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .title span:first-of-type {
@@ -169,6 +183,7 @@ import "swiper/css/effect-coverflow";
   border-radius: 24px;
   width: 100%;
   display: block;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* buttons */

@@ -1,132 +1,18 @@
 <template>
   <section class="wrapper-section">
     <div class="content-wrapper">
-      <p class="title">Servizi</p>
-
-      <ClientOnly>
-        <!-- MOBILE: Swiper -->
-        <Swiper
-          v-if="isMobile"
-          ref="swiperRef"
-          class="cards-wrapper"
-          :slides-per-view="'auto'"
-          :space-between="16"
-          :pagination="{ clickable: true }"
-          :modules="[Pagination]"
-        >
-          <SwiperSlide v-for="card in cards" :key="card.id" class="card-slide">
-            <ServiceCard>
-              <template #image>
-                <NuxtImg class="image" :src="card.image" :alt="card.alt" />
-              </template>
-              <template #title
-                ><h2>{{ card.title }}</h2></template
-              >
-              <template #text
-                ><p class="card-text">{{ card.text }}</p></template
-              >
-              <template #cta>
-                <a @click="scrollToContact()" class="cta-text"
-                  >RICHIEDI UN PREVENTIVO</a
-                >
-              </template>
-            </ServiceCard>
-          </SwiperSlide>
-        </Swiper>
-
-        <!-- DESKTOP: griglia/flex statica -->
-        <div v-else class="cards-wrapper desktop">
-          <div v-for="card in cards" :key="card.id" class="card-slide">
-            <ServiceCard>
-              <template #image>
-                <NuxtImg class="image" :src="card.image" :alt="card.alt" />
-              </template>
-              <template #title
-                ><h2>{{ card.title }}</h2></template
-              >
-              <template #text
-                ><p class="card-text">{{ card.text }}</p></template
-              >
-              <template #cta>
-                <a @click="scrollToContact()" class="cta-text"
-                  >RICHIEDI UN PREVENTIVO</a
-                >
-              </template>
-            </ServiceCard>
-          </div>
-        </div>
-      </ClientOnly>
+      <p class="title">Nasze linie...</p>
     </div>
   </section>
 </template>
 
-<script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from "vue";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Pagination } from "swiper/modules";
-
-import "swiper/css";
-import "swiper/css/pagination";
-
-const cards = [
-  {
-    id: 1,
-    image: "/images/brush.webp",
-    alt: "Imbianchature professionali",
-    title: "Imbianchiture",
-    text: "Imbiancatura precisa e veloce per case, uffici e locali. Usiamo pitture di qualità, resistenti e lavabili, garantendo ambienti freschi, puliti e un risultato professionale che valorizza ogni spazio.",
-  },
-  {
-    id: 2,
-    image: "/images/verniciature.webp",
-    alt: "Verniciature professionali",
-    title: "Verniciature",
-    text: " Offriamo verniciature professionali per travi in legno, termosifoni, inferriate e cancelli. Utilizziamo prodotti resistenti e di qualità per proteggere le superfici e valorizzarne estetica e durata nel tempo.",
-  },
-  {
-    id: 3,
-    image: "/images/decor.webp",
-    alt: "Decorazioni murali di qualità",
-    title: "Decorazioni",
-    text: " Decorazioni murali di qualità con materiali selezionati: velature, spatolati, stucchi e finiture materiche. Lavorazioni artigianali che impreziosiscono pareti e soffitti, creando atmosfere uniche e dal design raffinato.",
-  },
-  {
-    id: 4,
-    image: "/images/muffa.webp",
-    alt: "Trattamenti antimuffa professionali",
-    title: "Antimuffa",
-    text: " Soluzioni efficaci per eliminare muffa da pareti e soffitti. Trattamenti professionali e prodotti specifici garantiscono ambienti più salubri, prevenendo il ritorno della muffa e proteggendo a lungo la tua casa.",
-  },
-];
-
-const isMobile = ref(true);
-let mq: MediaQueryList;
-let onChange: () => void;
-
-onMounted(() => {
-  mq = window.matchMedia("(max-width: 991px)"); // mobile < 992px
-  onChange = () => (isMobile.value = mq.matches);
-  onChange();
-  if (mq.addEventListener) mq.addEventListener("change", onChange);
-  else mq.addListener(onChange);
-});
-
-onBeforeUnmount(() => {
-  if (!mq) return;
-  if (mq.removeEventListener) mq.removeEventListener("change", onChange);
-  else mq.removeListener(onChange);
-});
-
-function scrollToContact() {
-  const el = document.getElementById("contact");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 .wrapper-section {
-  background-color: var(--clr-secondary);
+  background-color: var(--clr-primary);
   width: 100%;
+  height: 1000px;
   padding-left: 5%;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;

@@ -10,34 +10,12 @@
 
 <style scoped>
 .wrapper-card {
-  height: 100%;
-  width: 100%;
-  /* background-color: var(--clr-primary); */
-  border-radius: 24px;
-  /* box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3); */
   /* border: 2px solid green; */
 }
 
 .wrapper-image {
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  /* display: flex;
-justify-content: center;
-  align-items: center; */
+  /* border: 2px solid violet; */
 }
-
-/* Stile per l'immagine dentro lo slot */
-.wrapper-image ::v-deep(img),
-.wrapper-image ::v-deep(nuxt-img) {
-  /* width: 100%; */
-  /* height: 100%; */
-  /* object-fit: scale-down;
-
-  object-position: bottom; */
-}
-/* cover, contain, fill, scale-down */
-/* top, bottom, left, right, X% Y% */
 
 .wrapper-title {
   font-weight: 600;
