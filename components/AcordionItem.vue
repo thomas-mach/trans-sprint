@@ -2,7 +2,7 @@
   <div class="accordion">
     <button
       ref="btnRef"
-      @click="toggle"
+      @click="handleClick"
       :class="['btn', { 'btn-open': isOpen }]"
     >
       <div class="title">
@@ -24,15 +24,21 @@
 
 <script setup lang="ts">
 import { ref, nextTick } from "vue";
+import { useUIStore } from "../stores/ui";
 
+interface Props {
+  keyName: string; // chiave dello stato dello store per questo accordion
+}
+
+const props = defineProps<Props>();
+const ui = useUIStore();
 const isOpen = ref(false);
 const btnRef = ref<HTMLElement | null>(null);
 const outerRef = ref<HTMLElement | null>(null);
 
-function toggle() {
+function toggleLocal() {
   isOpen.value = !isOpen.value;
 
-  // Forza il reflow per l'animazione fluida
   nextTick(() => {
     const outer = outerRef.value;
     if (!outer) return;
@@ -43,6 +49,15 @@ function toggle() {
       outer.style.maxHeight = "0";
     }
   });
+}
+
+function handleClick() {
+  toggleLocal();
+
+  // Aggiorna solo lo stato specifico dell'accordion nello store
+  if (props.keyName) {
+    ui.accordionsState[props.keyName] = !ui.accordionsState[props.keyName];
+  }
 }
 </script>
 
@@ -68,6 +83,10 @@ function toggle() {
   transform: rotate(45deg);
 }
 
+.accordion {
+  width: 100%;
+}
+
 .btn {
   background-color: var(--clr-white);
   width: 100%;
@@ -89,6 +108,7 @@ function toggle() {
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
   background-color: var(--clr-accent);
+  color: var(--clr-white);
 }
 
 .accordion-outer {
@@ -101,7 +121,8 @@ function toggle() {
 }
 
 .accordion-outer.open {
-  max-height: 1000px; /* abbastanza grande per contenuto */
+  max-height: 1200px; /* abbastanza grande per contenuto */
+  margin-bottom: 1rem;
 }
 
 .accordion-content {

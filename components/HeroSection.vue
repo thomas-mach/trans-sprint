@@ -159,8 +159,8 @@ import "swiper/css/effect-coverflow";
 }
 
 .hero-text {
-  font-weight: 200;
-  font-size: 1rem;
+  font-weight: 400;
+  font-size: 1.1rem;
   line-height: 1.4;
   letter-spacing: 1px;
   text-align: center;

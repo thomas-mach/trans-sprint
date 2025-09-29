@@ -1,0 +1,192 @@
+{
+  "krasnystaw": [
+    {
+      "hour": "5:00",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "5:25",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "7:54",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:25",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "11:30",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "12:15",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "15:45",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "16:00",
+      "legend": "VDdnu7"
+    },
+    {
+      "hour": "18:40",
+      "legend": "VDdnu"
+    }
+  ],
+  "lopiennik": [
+    {
+      "hour": "5:14",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "5:39",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:08",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:39",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "11:44",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "12:29",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "15:59",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "16:14",
+      "legend": "VDdnu7"
+    },
+    {
+      "hour": "18:54",
+      "legend": "VDdnu"
+    }
+  ],
+  "fajslawice": [
+    {
+      "hour": "5:22",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "5:47",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:16",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:47",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "11:52",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "12:37",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "16:07",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "16:22",
+      "legend": "VDdnu7"
+    },
+    {
+      "hour": "19:02",
+      "legend": "VDdnu"
+    }
+  ],
+  "piaski": [
+    {
+      "hour": "5:33",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "5:58",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:27",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:58",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "12:03",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "12:48",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "16:18",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "16:33",
+      "legend": "VDdnu7"
+    },
+    {
+      "hour": "19:13",
+      "legend": "VDdnu"
+    }
+  ],
+  "lublin": [
+    {
+      "hour": "6:03",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "6:28",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "9:57",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "9:28",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "12:33",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "13:18",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "16:48",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "17:03",
+      "legend": "VDdnu7"
+    },
+    {
+      "hour": "19:43",
+      "legend": "VDdnu"
+    }
+  ]
+}

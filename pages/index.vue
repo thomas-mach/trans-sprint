@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ServicesSection />
+    <ScheduleSection />
     <!-- <BenefitsSection />
     <ZoneSection />
     <FAQ />
