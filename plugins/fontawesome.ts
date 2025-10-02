@@ -21,6 +21,7 @@ import {
   faClock,
   faSprayCanSparkles,
   faArrowRightLong,
+  faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 // import { faGem } from "@fortawesome/free-regular-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
@@ -45,7 +46,8 @@ library.add(
   faGem,
   faClock,
   faSprayCanSparkles,
-  faArrowRightLong
+  faArrowRightLong,
+  faChevronRight
 );
 
 // 3. Esporta il plugin

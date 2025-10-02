@@ -1,6 +1,7 @@
 <template>
   <div>
     <ScheduleSection />
+
     <!-- <BenefitsSection />
     <ZoneSection />
     <FAQ />
@@ -164,3 +165,4 @@
 
   gtag('config', 'G-E7WCB7BBXT');
 </script> -->
+<style scoped></style>

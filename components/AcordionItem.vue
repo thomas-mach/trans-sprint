@@ -1,20 +1,14 @@
 <template>
   <div class="accordion">
-    <button
-      ref="btnRef"
-      @click="handleClick"
-      :class="['btn', { 'btn-open': isOpen }]"
-    >
-      <div class="title">
-        <slot name="title" />
-      </div>
+    <button @click="handleClick" :class="['btn', { 'btn-open': isOpen }]">
+      <div class="title"><slot name="title" /></div>
       <FontAwesomeIcon
         :class="isOpen ? 'icon icon-rotate' : 'icon'"
-        :icon="['fas', 'plus']"
+        :icon="['fas', 'chevron-right']"
       />
     </button>
 
-    <div ref="outerRef" class="accordion-outer" :class="{ open: isOpen }">
+    <div ref="outerRef" class="accordion-outer">
       <div class="accordion-content">
         <slot name="content" />
       </div>
@@ -23,43 +17,90 @@
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick } from "vue";
+import { ref, nextTick, watch, onMounted } from "vue";
 import { useUIStore } from "../stores/ui";
 
 interface Props {
-  keyName: string; // chiave dello stato dello store per questo accordion
+  keyName: keyof ReturnType<typeof useUIStore>["accordionsState"];
+  parentKey?: keyof ReturnType<typeof useUIStore>["accordionsState"]; // opzionale: stato genitore
+  parentRef?: HTMLElement | null; // ref del genitore
 }
 
 const props = defineProps<Props>();
 const ui = useUIStore();
-const isOpen = ref(false);
-const btnRef = ref<HTMLElement | null>(null);
+
 const outerRef = ref<HTMLElement | null>(null);
 
-function toggleLocal() {
-  isOpen.value = !isOpen.value;
+// stato locale per animazione (max-height)
+const isOpen = ref(ui.accordionsState[props.keyName]);
 
-  nextTick(() => {
+// click toggle
+function handleClick() {
+  ui.accordionsState[props.keyName] = !ui.accordionsState[props.keyName];
+}
+
+// osserva lo store per animare apertura/chiusura
+watch(
+  () => ui.accordionsState[props.keyName],
+  (newVal) => {
+    isOpen.value = newVal;
     const outer = outerRef.value;
     if (!outer) return;
 
-    if (isOpen.value) {
+    if (newVal) {
+      // apertura
       outer.style.maxHeight = outer.scrollHeight + "px";
+
+      // nextTick(() => {
+      //   const scrollTarget = props.parentRef || outer;
+      //   const yOffset = -100;
+      //   const y =
+      //     scrollTarget.getBoundingClientRect().top + window.scrollY + yOffset;
+      //   window.scrollTo({ top: y, behavior: "smooth" });
+      // });
     } else {
+      // chiusura fluida
+      outer.style.maxHeight = outer.scrollHeight + "px"; // forza reflow
+      outer.offsetHeight;
       outer.style.maxHeight = "0";
     }
-  });
-}
-
-function handleClick() {
-  toggleLocal();
-
-  // Aggiorna solo lo stato specifico dell'accordion nello store
-  if (props.keyName) {
-    ui.accordionsState[props.keyName] = !ui.accordionsState[props.keyName];
   }
+);
+
+// opzionale: chiudi automaticamente se genitore chiuso
+if (props.parentKey) {
+  watch(
+    () => ui.accordionsState[props.parentKey!],
+    (parentVal) => {
+      if (!parentVal) {
+        ui.accordionsState[props.keyName] = false; // chiude figlio
+      }
+    }
+  );
 }
+
+onMounted(() => {
+  const outer = outerRef.value;
+  if (!outer) return;
+
+  outer.addEventListener("transitionend", (e) => {
+    // assicuriamoci che sia la proprietà max-height e l’apertura
+    if (e.propertyName === "max-height" && ui.accordionsState[props.keyName]) {
+      outer.style.maxHeight = "none"; // auto
+      // scrolla solo quando l’outer del figlio è completamente aperto
+      outer.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  });
+});
 </script>
+
+<style scoped>
+.accordion-outer {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+</style>
 
 <style scoped>
 .title {
@@ -80,11 +121,12 @@ function handleClick() {
 }
 
 .icon-rotate {
-  transform: rotate(45deg);
+  transform: rotate(90deg);
 }
 
 .accordion {
   width: 100%;
+  margin-bottom: 1rem;
 }
 
 .btn {

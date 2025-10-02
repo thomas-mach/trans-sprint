@@ -31,10 +31,6 @@
     {
       "hour": "16:00",
       "legend": "VDdnu7"
-    },
-    {
-      "hour": "18:40",
-      "legend": "VDdnu"
     }
   ],
   "lopiennik": [
@@ -69,10 +65,6 @@
     {
       "hour": "16:14",
       "legend": "VDdnu7"
-    },
-    {
-      "hour": "18:54",
-      "legend": "VDdnu"
     }
   ],
   "fajslawice": [
@@ -107,10 +99,6 @@
     {
       "hour": "16:22",
       "legend": "VDdnu7"
-    },
-    {
-      "hour": "19:02",
-      "legend": "VDdnu"
     }
   ],
   "piaski": [
@@ -145,10 +133,6 @@
     {
       "hour": "16:33",
       "legend": "VDdnu7"
-    },
-    {
-      "hour": "19:13",
-      "legend": "VDdnu"
     }
   ],
   "lublin": [
@@ -183,10 +167,6 @@
     {
       "hour": "17:03",
       "legend": "VDdnu7"
-    },
-    {
-      "hour": "19:43",
-      "legend": "VDdnu"
     }
   ]
 }

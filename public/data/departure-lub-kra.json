@@ -1,0 +1,172 @@
+{
+  "lublin": [
+    {
+      "hour": "6:35",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "7:10",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "9:25",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "10:25",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "13:12",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "13:30",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "17:10",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "17:20",
+      "legend": "VDdnu7"
+    }
+  ],
+  "piaski": [
+    {
+      "hour": "7:09",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "7:44",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "9:59",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "10:59",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "13:46",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "14:04",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "17:44",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "17:54",
+      "legend": "VDdnu7"
+    }
+  ],
+  "fajslawice": [
+    {
+      "hour": "7:21",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "7:56",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "10:11",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "11:11",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "13:58",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "14:16",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "17:56",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "18:06",
+      "legend": "VDdnu7"
+    }
+  ],
+  "lopiennik": [
+    {
+      "hour": "7:29",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:04",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "10:19",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "11:19",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "14:06",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "14:24",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "18:04",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "18:14",
+      "legend": "VDdnu7"
+    }
+  ],
+  "krasnystaw": [
+    {
+      "hour": "7:41",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "8:16",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "10:31",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "11:31",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "14:18",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "14:36",
+      "legend": "VDdnu67"
+    },
+    {
+      "hour": "18:16",
+      "legend": "VDdnu"
+    },
+    {
+      "hour": "18:26",
+      "legend": "VDdnu7"
+    }
+  ]
+}

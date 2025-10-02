@@ -1,208 +1,48 @@
 <template>
-  <Modal v-model:show="showModal"></Modal>
   <section class="wrapper-section">
-    <!-- <pre>{{ ui.accordionsState }}</pre> -->
-    <div class="divider-top"></div>
-    <h2 class="title">NASZE LINIE</h2>
+    <p class="section-title">ROZKŁADY JAZDY</p>
     <div class="divider"></div>
-    <div class="content-wrapper">
-      <div class="linea">
-        <span>Krasnystaw</span>
-        <div class="arrow-wrapper">
-          <p class="time">1:03'</p>
-          <img class="arrow" src="/images/arrow.png" alt="" />
-        </div>
-        <span>Lublin</span>
-      </div>
-
-      <div class="acordions-wrapper">
-        <!-- KRASNYSTAW -->
-        <div class="acordion-wrapper">
-          <div class="dot-line-wrapper">
-            <div class="dot-point"></div>
-            <div class="line-point">
-              <p
-                class="time-leg"
-                :class="{ 'display-none': !ui.accordionsState.krasnystaw }"
-              >
-                14 minut
-              </p>
-            </div>
+    <AcordionLeg :closeFn="ui.closeKraAccordions" class="accordion">
+      <template #title>
+        <div class="linea" @click="">
+          <span>Krasnystaw</span>
+          <div class="arrow-wrapper">
+            <p class="time">1:03'</p>
+            <img class="arrow" src="/images/arrow.png" alt="" />
           </div>
-
-          <AcordionItem key-name="krasnystaw">
-            <template #title>
-              <p>Odjazdy Krasnystaw</p>
-            </template>
-            <template #content>
-              <div class="departure-wrapper">
-                <div
-                  class="departure"
-                  v-for="(el, index) in departure.krasnystaw"
-                  :key="index"
-                >
-                  <p class="hour">{{ el.hour }}</p>
-                  <p class="trip">kurs {{ index + 1 }}</p>
-                  <button class="legend" @click="openModal()">
-                    {{ el.legend }}
-                  </button>
-                </div>
-              </div>
-            </template>
-          </AcordionItem>
+          <span>Lublin</span>
         </div>
-
-        <!-- LOPIENNIK -->
-        <div class="acordion-wrapper">
-          <div class="dot-line-wrapper">
-            <div class="dot-point"></div>
-            <div class="line-point">
-              <p
-                class="time-leg"
-                :class="{ 'display-none': !ui.accordionsState.lopiennik }"
-              >
-                8 minut
-              </p>
-            </div>
+      </template>
+      <template #content>
+        <div class="component">
+          <ScheduleKraLub />
+        </div>
+      </template>
+    </AcordionLeg>
+    <AcordionLeg :closeFn="ui.closeLubAccordions">
+      <template #title>
+        <div class="linea" @click="">
+          <span>Lublin</span>
+          <div class="arrow-wrapper">
+            <p class="time">1:06'</p>
+            <img class="arrow" src="/images/arrow.png" alt="" />
           </div>
-
-          <AcordionItem key-name="lopiennik">
-            <template #title>
-              <p>Odjazdy Łopiennik-Nad.</p>
-            </template>
-            <template #content>
-              <div class="departure-wrapper">
-                <div
-                  class="departure"
-                  v-for="(el, index) in departure.lopiennik"
-                  :key="index"
-                >
-                  <p class="hour">{{ el.hour }}</p>
-                  <p class="trip">kurs {{ index + 1 }}</p>
-                  <button class="legend" @click="openModal()">
-                    {{ el.legend }}
-                  </button>
-                </div>
-              </div>
-            </template>
-          </AcordionItem>
+          <span>Krasnystaw</span>
         </div>
-
-        <!-- FAJSLAWICE -->
-        <div class="acordion-wrapper">
-          <div class="dot-line-wrapper">
-            <div class="dot-point"></div>
-            <div class="line-point">
-              <p
-                class="time-leg"
-                :class="{ 'display-none': !ui.accordionsState.fajslawice }"
-              >
-                11 minut
-              </p>
-            </div>
-          </div>
-
-          <AcordionItem key-name="fajslawice">
-            <template #title>
-              <p>Odjazdy fajslawice</p>
-            </template>
-            <template #content>
-              <div class="departure-wrapper">
-                <div
-                  class="departure"
-                  v-for="(el, index) in departure.fajslawice"
-                  :key="index"
-                >
-                  <p class="hour">{{ el.hour }}</p>
-                  <p class="trip">kurs {{ index + 1 }}</p>
-                  <button class="legend" @click="openModal()">
-                    {{ el.legend }}
-                  </button>
-                </div>
-              </div>
-            </template>
-          </AcordionItem>
+      </template>
+      <template #content>
+        <div class="component">
+          <ScheduleLubKra />
         </div>
-
-        <!-- PIASKI -->
-        <div class="acordion-wrapper">
-          <div class="dot-line-wrapper">
-            <div class="dot-point"></div>
-            <div class="line-point">
-              <p
-                class="time-leg"
-                :class="{ 'display-none': !ui.accordionsState.piaski }"
-              >
-                30 minut
-              </p>
-            </div>
-          </div>
-
-          <AcordionItem key-name="piaski">
-            <template #title>
-              <p>Odjazdy piaski</p>
-            </template>
-            <template #content>
-              <div class="departure-wrapper">
-                <div
-                  class="departure"
-                  v-for="(el, index) in departure.piaski"
-                  :key="index"
-                >
-                  <p class="hour">{{ el.hour }}</p>
-                  <p class="trip">kurs {{ index + 1 }}</p>
-                  <button class="legend" @click="openModal()">
-                    {{ el.legend }}
-                  </button>
-                </div>
-              </div>
-            </template>
-          </AcordionItem>
-        </div>
-
-        <!-- LUBLIN -->
-        <div class="acordion-wrapper">
-          <div class="dot-line-wrapper">
-            <div class="dot-point"></div>
-            <div class="line-point display-none"></div>
-          </div>
-
-          <AcordionItem key-name="lublin">
-            <template #title>
-              <p>Przyjazdy Lublin</p>
-            </template>
-            <template #content>
-              <div class="departure-wrapper">
-                <div
-                  class="departure"
-                  v-for="(el, index) in departure.lublin"
-                  :key="index"
-                >
-                  <p class="hour">{{ el.hour }}</p>
-                  <p class="trip">kurs {{ index + 1 }}</p>
-                  <button class="legend" @click="openModal()">
-                    {{ el.legend }}
-                  </button>
-                </div>
-              </div>
-            </template>
-          </AcordionItem>
-        </div>
-      </div>
-    </div>
+      </template>
+    </AcordionLeg>
+    <div class="divider"></div>
   </section>
 </template>
 
 <script setup lang="ts">
-import departure from "../public/data/departure.json";
 import { useUIStore } from "../stores/ui";
-
 const ui = useUIStore();
-const showModal = ref(false);
-
-function openModal() {
-  showModal.value = true;
-}
 </script>
 
 <style scoped>
@@ -210,83 +50,7 @@ function openModal() {
   background-color: var(--clr-primary);
   display: flex;
   flex-direction: column;
-  padding: 3rem 5% 3rem;
-}
-
-.acordions-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.acordion-wrapper {
-  display: flex;
-  gap: 1rem;
-}
-
-.content-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.departure-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: center;
-}
-
-.dot-line-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 0.75rem;
-  gap: 0.75rem;
-}
-
-.arrow-wrapper {
-  position: relative;
-}
-
-.departure {
-  display: flex;
-  align-items: center;
-  /* justify-content: space-between; */
-  border: 1px solid var(--clr-black);
-  border-radius: 5px;
-  padding: 0.3rem;
-}
-
-.title {
-  text-align: center;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 2rem;
-  letter-spacing: 0px;
-  font-family: "Montserrat";
-  color: var(--clr-white);
-}
-
-.legend {
-  background-color: transparent;
-  border: none;
-  border-radius: 3px;
-  color: var(--clr-black);
-  font-size: 1rem;
-  margin-left: auto;
-  letter-spacing: 1px;
-  text-decoration: underline;
-  color: blue;
-}
-
-.hour {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-right: 2rem;
-}
-
-.trip {
-  font-size: 0.85rem;
-  font-style: italic;
+  padding: 3rem 0% 3rem;
 }
 
 .linea {
@@ -298,7 +62,6 @@ function openModal() {
   font-style: italic;
   font-size: 1.2rem;
   letter-spacing: 1px;
-  margin-bottom: 0.75rem;
   color: var(--clr-white);
 }
 
@@ -317,57 +80,24 @@ function openModal() {
   /* background-color: var(--clr-primary); */
 }
 
-.dot-point {
-  width: 20px;
-  aspect-ratio: 1;
-  background-color: var(--clr-white);
-  border-radius: 50%;
-  align-self: flex-start;
-}
-
-.line-point {
+.arrow-wrapper {
   position: relative;
-  width: 2px;
-  min-height: 25px;
-  flex-grow: 1;
-  background-color: var(--clr-white);
-}
-
-.time-leg {
-  /* color: var(--clr-white); */
-  color: var(--clr-white);
-
-  font-weight: 600;
-  padding: 5px 5px;
-  background-color: var(--clr-primary);
-  font-size: 0.85rem;
-  position: absolute;
-  transform: rotate(-90deg);
-  display: inline-block;
-  min-width: max-content;
-  white-space: nowrap;
-  left: -36px;
-  top: 180px;
 }
 
 .divider {
   width: 100%;
-  height: 2px;
-  margin-bottom: 2rem;
+  height: 1px;
   background-color: var(--clr-white);
 }
 
-.divider-top {
-  width: 100%;
-  height: 2px;
-  background-color: var(--clr-white);
-}
-
-.icon {
-}
-
-.display-none {
-  display: none;
-  color: red;
+.section-title {
+  font-weight: 600;
+  color: var(--clr-white);
+  background-color: var(--clr-accent);
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem 0;
+  font-style: italic;
+  letter-spacing: 1px;
 }
 </style>

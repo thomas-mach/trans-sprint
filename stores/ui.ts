@@ -4,11 +4,16 @@ import { ref, nextTick, onMounted, onBeforeUnmount } from "vue";
 export const useUIStore = defineStore("ui", () => {
   const showNav = ref(false);
   const accordionsState = ref({
-    krasnystaw: false,
-    lopiennik: false,
-    fajslawice: false,
-    piaski: false,
-    lublin: false,
+    krasnystawLub: false,
+    lopiennikLub: false,
+    fajslawiceLub: false,
+    piaskiLub: false,
+    lublinLub: false,
+    krasnystawKra: false,
+    lopiennikKra: false,
+    fajslawiceKra: false,
+    piaskiKra: false,
+    lublinKra: false,
   });
 
   const toggleNav = () => {
@@ -25,10 +30,28 @@ export const useUIStore = defineStore("ui", () => {
     accordionsState.value[name] = !accordionsState.value[name];
   }
 
+  function closeKraAccordions() {
+    accordionsState.value.krasnystawLub = false;
+    accordionsState.value.lopiennikLub = false;
+    accordionsState.value.fajslawiceLub = false;
+    accordionsState.value.piaskiLub = false;
+    accordionsState.value.lublinLub = false;
+  }
+
+  function closeLubAccordions() {
+    accordionsState.value.krasnystawKra = false;
+    accordionsState.value.lopiennikKra = false;
+    accordionsState.value.fajslawiceKra = false;
+    accordionsState.value.piaskiKra = false;
+    accordionsState.value.lublinKra = false;
+  }
+
   return {
     showNav,
     toggleNav,
     accordionsState,
     toggleAccordion,
+    closeKraAccordions,
+    closeLubAccordions,
   };
 });
